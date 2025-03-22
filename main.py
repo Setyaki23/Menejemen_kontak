@@ -75,4 +75,4 @@ while True:
         # keluar dari kontak
         break
     else:
-        print("anda memasukan pilihan yang salah")
+        print("anda memasukan pilihan salah")
