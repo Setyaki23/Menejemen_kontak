@@ -2,32 +2,40 @@ kontak1 = {'nama': "Andi", 'hp': "12131425", 'email': "andi@pyhton.com"}
 kontak2 = {'nama': "ANI", 'hp': "928323783", "email": "ani@aniii"}
 kontak = [kontak1, kontak2]
 
-def melihat_kontak():
-    if pilihan == '1':
-        if kontak:
+
+class contac:
+    def __init__(self):
+        self.contac = []
+
+    def melihat_kontak(self):
+        if pilihan == '1':
+            if self.contac:
+                for num, item in enumerate(kontak, start=1):
+                    print(f'\n{num}. {item["nama"]} ({item["hp"]}, {item["email"]})')
+            else:
+                print("Kontak masih kosong")
+                return 1
+
+    def menambah_kontak(self):
+        nama = input("masukan nama yang baru: ")
+        hp = input("masukan nomor hp yang baru: ")
+        email = input("masukan email yang baru: ")
+        kontak_baru = {"nama": nama, "hp": hp, 'email': email}
+        self.contac.append(kontak_baru)
+        print("kontak baru berhasil ditambahkan!")
+    def menghapus_kontak(self):
+        if self.contac:
+            i_hapus = int(input("masukan nomor kontak yang akan dihapus: "))
+            del self.contac[i_hapus - 1]
+            print("kontak sudah dihapus")
+        else:
             for num, item in enumerate(kontak, start=1):
                 print(f'\n{num}. {item["nama"]} ({item["hp"]}, {item["email"]})')
-        else:
-            print("Kontak masih kosong")
-            return 1
-
-def menambah_kontak():
-    nama = input("masukan nama yang baru: ")
-    hp = input("masukan nomor hp yang baru: ")
-    email = input("masukan email yang baru: ")
-    kontak_baru = {"nama": nama, "hp": hp, 'email': email}
-    kontak.append(kontak_baru)
-    print("kontak baru berhasil ditambahkan!")
-def menghapus_kontak():
-    if kontak:
-        for num, item in enumerate(kontak, start=1):
-            print(f'\n{num}. {item["nama"]} ({item["hp"]}, {item["email"]})')
-    else:
-        i_hapus = int(input("masukan nomor kontak yang akan dihapus: "))
-        del kontak[i_hapus - 1]
-        print("kontak sudah dihapus")
 
 
+
+kontak_kantor= contac()
+Manajemen_kontak=()
 # "program manajemen kontak"#
 while True:
 
