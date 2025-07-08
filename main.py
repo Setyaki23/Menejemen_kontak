@@ -1,6 +1,6 @@
-kontak1 = {'nama': "Andi", 'hp': "12131425", 'email': "andi@pyhton.com"}
-kontak2 = {'nama': "ANI", 'hp': "928323783", "email": "ani@aniii"}
-kontak = [kontak1, kontak2]
+# kontak1 = {'nama': "Andi", 'hp': "12131425", 'email': "andi@pyhton.com"}
+# kontak2 = {'nama': "ANI", 'hp': "928323783", "email": "ani@aniii"}
+# kontak = [kontak1, kontak2]
 
 
 class contac:
@@ -8,13 +8,14 @@ class contac:
         self.contac = []
 
     def melihat_kontak(self):
-        if pilihan == '1':
-            if self.contac:
-                for num, item in enumerate(kontak, start=1):
-                    print(f'\n{num}. {item["nama"]} ({item["hp"]}, {item["email"]})')
-            else:
-                print("Kontak masih kosong")
-                return 1
+        if self.contac:
+            for num, item in enumerate(self.contac, start=1):
+                print(f'\n{num}. {item["nama"]} ({item["hp"]}, {item["email"]})')
+        else:
+            print("Kontak masih kosong")
+            return 1
+
+
 
     def menambah_kontak(self):
         nama = input("masukan nama yang baru: ")
@@ -23,19 +24,15 @@ class contac:
         kontak_baru = {"nama": nama, "hp": hp, 'email': email}
         self.contac.append(kontak_baru)
         print("kontak baru berhasil ditambahkan!")
+
     def menghapus_kontak(self):
         if self.contac:
             i_hapus = int(input("masukan nomor kontak yang akan dihapus: "))
             del self.contac[i_hapus - 1]
             print("kontak sudah dihapus")
         else:
-            for num, item in enumerate(kontak, start=1):
-                print(f'\n{num}. {item["nama"]} ({item["hp"]}, {item["email"]})')
-
-
-
-kontak_kantor= contac()
-Manajemen_kontak=()
+            print("kontak masih kosong")
+kontak_kantor = contac()
 # "program manajemen kontak"#
 while True:
 
@@ -48,7 +45,7 @@ while True:
     pilihan = input("masukan pilihan  menu kontak(1,2,3 atau 4):")
 
     if pilihan == '1':
-        melihat_kontak()
+        kontak_kantor.melihat_kontak()
         # if kontak:
         #     for num, item in enumerate(kontak, start=1):
         #         print(f'\n{num}. {item["nama"]} ({item["hp"]}, {item["email"]})')
@@ -56,7 +53,7 @@ while True:
         #     print("Kontak masih kosong")
 
     elif pilihan == '2':
-        menambah_kontak()
+        kontak_kantor.menambah_kontak()
         # menambahkan kontaK
         # nama = input("masukan nama yang baru: ")
         # hp = input("masukan nomor hp yang baru: ")
@@ -65,7 +62,7 @@ while True:
         # kontak.append(kontak_baru)
 
     elif pilihan == '3':
-        menghapus_kontak()
+        kontak_kantor.menghapus_kontak()
 
         # menghapus kontak
         # if kontak:
